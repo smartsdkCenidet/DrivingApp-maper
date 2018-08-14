@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKylGqXGF6dkieX9tcSsneA18xX-tAROw" async defer></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+    <script src='https://unpkg.com/leaflet.gridlayer.googlemutant@latest/Leaflet.GoogleMutant.js'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    
+   <style>
+        #map {
+    /*    margin: 32px; */
+    /*    width: auto; */
+    /*    overflow: visible; */
+            width: calc( 100vw - 64px );
+            height: calc( 100vh - 64px );
+        }
+        body { margin: 0 }
+    
+    </style>
+</head>
+<body>
+    <div id="map" class="map"></div>
+    <script>
+        var mapopts =  {
+//      zoomSnap: 0.1
+		};
+        var map = L.map('map', mapopts).setView([0,0],0);
+
+        var roadMutant = L.gridLayer.googleMutant({
+            maxZoom: 24,
+            type:'roadmap'
+        }).addTo(map);
+
+        var editableLayers = new L.FeatureGroup();
+
+        map.addLayer(editableLayers);
+        
+        var drawControl = new L.Control.Draw({
+        position: 'topleft',
+        draw: {
+            marker: {
+            icon: L.icon({
+                iconUrl: '../static/css/images/marker-icon.png',
+                shadowUrl: '../static/css/images/marker-shadow.png'
+            })
+            },
+            polygon:{   
+                shapeOptions: {
+                    color: '#3498db'
+                },        
+                showArea: true
+            },
+            polyline: {
+                shapeOptions: {
+                    color: '#008B8B',
+                    weight: 8
+                }
+            },
+            circle: false,
+            circlemarker: false
+        },
+        edit: {
+            featureGroup: editableLayers, //REQUIRED!!
+            edit: false
+        }
+    });
+    map.addControl(drawControl);
+
+    </script>
+</body>
+</html>

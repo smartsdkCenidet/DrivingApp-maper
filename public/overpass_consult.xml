@@ -1,0 +1,1 @@
+data=<?xml version='1.0' encoding='UTF-8'?><osm-script><query type='node'><has-kv k='amenity' v='drinking_water'/><bbox-query s='41.88659196260802' w='12.488558292388916' n='41.89248629819397' e='12.51119613647461'/></query><print/></osm-script>

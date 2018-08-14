@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps Consumer</title>
+
+    <link rel="stylesheet" href="/assets/css/estilos.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+    <script src="/assets/js/modernizr-2.8.3.min.js"></script>
+  </head>
+  <body> 
+    <div class="container-fluid main-container">
+      <div class="col-md-12">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center"> Main Map</h2>
+                <br>
+                <label for="zoneAddress"><i class="fas fa-map-marker-alt"></i>  Address's Zone: </label>
+                <textarea  id="zoneAddress" placeholder="Insert the address of the zone" required rows="1" cols="50"></textarea>
+                <button type="button" class="btn btn-outline-info col-12" onclick="searchAddress()">Search Address on Map</button>
+                <button type="button" class="btn btn-outline-info col-12" onclick="drawRoads()">Draw Roads</button>
+                
+                <div id="mapid">
+                </div>
+                
+            </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="/assets/js/delimitation.js"></script>
+  </body>
+</html>
